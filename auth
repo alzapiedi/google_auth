@@ -865,9 +865,8 @@ function get() {
 
   try {
     const code = getAuthCode(secrets[env], key);
-    console.log(`${code} COPIED TO CLIPBOARD`);
     exec(`echo "${code}" | pbcopy`);
-    return code;
+    console.log(code);
   } catch (e) {
     console.log(e.message)
     console.log('INVALID KEY, USE -h FLAG FOR HELP');
@@ -925,4 +924,3 @@ function help() {
   console.log('GET AN AUTHENTICATOR CODE FOR AN ENVIRONMENT:\n\tauth -g <ENV_NAME> <PASSWORD>\n');
   console.log('REMOVE AN ENVIROMENT CONFIGURATION:\n\tauth -r <ENV_NAME>');
 }
-
